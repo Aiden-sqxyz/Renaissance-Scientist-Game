@@ -1,0 +1,10 @@
+{
+  "name": "renaissance-scientist",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "test": "node --test tests/engine.test.mjs",
+    "simulate": "node tests/model.mjs"
+  }
+}
