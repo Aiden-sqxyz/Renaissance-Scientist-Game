@@ -67,3 +67,15 @@
 #renaissance-app .rs-chapter-art img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
 #renaissance-app .rs-choices,#renaissance-app .rs-fate,#renaissance-app .rs-changes,#renaissance-app .rs-history{clear:both}
 @media(max-width:540px){#renaissance-app .rs-hero-art{position:relative;width:auto;right:auto;top:auto;opacity:1;margin-top:26px;pointer-events:auto}#renaissance-app .rs-hero-art .rs-plate-label{display:block}#renaissance-app .rs-chapter-art{float:none;width:100%;max-width:none;margin:0 0 18px}#renaissance-app .rs-chapter-art img{aspect-ratio:16/8}}
+
+#renaissance-app .rs-chapter-art img{height:auto;max-height:200px;aspect-ratio:16/10;object-fit:cover}
+#renaissance-app .rs-guide-lead{font-size:20px;font-style:italic}
+#renaissance-app .rs-guide-letter{border-left:3px solid #92723d;background:#daceb255;padding:16px 20px;margin:22px 0}
+#renaissance-app .rs-guide-letter p:last-child{margin-bottom:0}
+#renaissance-app .rs-guide-chapter{border-top:1px solid #b5a681;padding:18px 0}
+#renaissance-app .rs-guide-chapter summary{font-size:19px;line-height:1.4}
+#renaissance-app .rs-guide-advice{margin-top:22px}
+#renaissance-app .rs-guide-advice h4{font-size:17px;margin:0 0 7px}
+#renaissance-app .rs-guide-crosslink{display:inline;font:inherit;text-decoration:underline;padding:0}
+@media(max-width:700px){#renaissance-app .rs-header{flex-wrap:wrap;gap:8px;padding:14px 0}#renaissance-app .rs-nav{width:100%;justify-content:space-between;gap:10px}#renaissance-app .rs-nav button{font-size:11px}}
+#renaissance-app .rs-hero-image{height:auto;aspect-ratio:16/9}

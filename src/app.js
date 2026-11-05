@@ -3,6 +3,7 @@ import { LABELS, DESCRIPTIONS, INTRO, CHAPTERS, responsiveLine, eventText, outco
 import { SOURCES } from './history.js';
 import { mark, icon, heavens } from './art.js';
 import { MODEL } from './model-results.js';
+import { authorsGuide } from './guide.js';
 
 const root = document.getElementById('renaissance-app');
 const STORAGE = 'renaissance-scientist-v1';
@@ -26,9 +27,9 @@ function timeline() {
   return `<ol class="rs-timeline" aria-label="Six chapters of your career">${CHAPTERS.map((c,i)=>`<li class="${i<game.turn?'done':i===game.turn?'current':''}" ${i===game.turn?'aria-current="step"':''}><span class="rs-dot" aria-hidden="true"></span><span class="rs-sr">Chapter ${i+1}: </span>${c.year}</li>`).join('')}</ol>`;
 }
 const CHAPTER_ART = ['lens-workshop','university','spyglass','patron','debate','print-shop'];
-function chapterArt(turn) { const name=CHAPTER_ART[turn]; const alt={ 'lens-workshop':'An illustrated Renaissance lens and instrument workshop', observatory:'An illustrated scholar observing the night sky', 'print-shop':'An illustrated Renaissance printing workshop', university:'An illustrated Italian university cloister', spyglass:'An illustrated workshop assembling an early spyglass', patron:'An illustrated patronage scene at an Italian court', debate:'An illustrated scholarly debate in a candlelit library' }[name]; return `<figure class="rs-chapter-art"><img src="assets/${name}.webp" alt="${alt}" loading="eager"></figure>`; }
+function chapterArt(turn) { const name=CHAPTER_ART[turn]; const alt={ 'lens-workshop':'An illustrated Renaissance lens and instrument workshop', observatory:'An illustrated scholar observing the night sky', 'print-shop':'An illustrated Renaissance printing workshop', university:'An illustrated Italian university cloister', spyglass:'An illustrated workshop assembling an early spyglass', patron:'An illustrated patronage scene at an Italian court', debate:'An illustrated scholarly debate in a candlelit library' }[name]; return `<figure class="rs-chapter-art"><img src="${ART[name]}" width="1400" height="788" alt="${alt}" loading="eager"></figure>`; }
 function intro() {
-  return `<section class="rs-hero"><div class="rs-hero-copy"><div class="rs-label">Italy · 1587—1633</div><h1 data-focus tabindex="-1">Renaissance<br><span>Scientist.</span></h1><p class="rs-subtitle">Survival Against the Odds</p><p class="rs-tagline">Knowledge has a price.<br>Discovery is only the beginning.</p><p class="rs-intro">${INTRO}</p><div class="rs-actions">${game?button('resume',game.screen==='ending'?'Read your chronicle':'Continue your career')+linkButton('restart','Begin a new career'):button('start','Begin your career')}</div><p class="rs-playtime">6 decisions &nbsp;·&nbsp; 5–10 minutes &nbsp;·&nbsp; 5 possible endings</p></div><div class="rs-hero-art"><img class="rs-hero-image" src="assets/pisa-cover.webp" alt="Illustrated Renaissance scholar overlooking Pisa, with its Leaning Tower beside the cathedral"><div class="rs-plate-label">An imagined night in Renaissance Pisa</div></div></section><section class="rs-ledger"><div><span class="rs-label">Your first page</span><h2>Great questions.<br>Limited means.</h2></div>${statBlock(INITIAL,true)}</section><div class="rs-open-note"><p><strong>Keep Money and Safety above zero.</strong> Build Research and Reputation to at least 4, then hope your work gains wider recognition. A good strategy helps. Nothing guarantees success.</p>${linkButton('rules','Read the rules ↗')}</div>`;
+  return `<section class="rs-hero"><div class="rs-hero-copy"><div class="rs-label">Italy · 1587—1633</div><h1 data-focus tabindex="-1">Renaissance<br><span>Scientist.</span></h1><p class="rs-subtitle">Survival Against the Odds</p><p class="rs-tagline">Knowledge has a price.<br>Discovery is only the beginning.</p><p class="rs-intro">${INTRO}</p><div class="rs-actions">${game?button('resume',game.screen==='ending'?'Read your chronicle':'Continue your career')+linkButton('restart','Begin a new career'):button('start','Begin your career')}</div><p class="rs-playtime">6 decisions &nbsp;·&nbsp; 5–10 minutes &nbsp;·&nbsp; 5 possible endings</p></div><div class="rs-hero-art"><img class="rs-hero-image" src="${ART['pisa-cover']}" width="1400" height="788" alt="Illustrated Renaissance scholar overlooking Pisa, with its Leaning Tower beside the cathedral"><div class="rs-plate-label">An imagined night in Renaissance Pisa</div></div></section><section class="rs-ledger"><div><span class="rs-label">Your first page</span><h2>Great questions.<br>Limited means.</h2></div>${statBlock(INITIAL,true)}</section><div class="rs-open-note"><p><strong>Keep Money and Safety above zero.</strong> Build Research and Reputation to at least 4, then hope your work gains wider recognition. A good strategy helps. Nothing guarantees success.</p>${linkButton('rules','Read the rules ↗')}</div>`;
 }
 function warning(choice) {
   const rule=RULES[game.turn][choice];
@@ -75,9 +76,10 @@ function sources() {
 function openDialog(kind) {
   dialogFocus=document.activeElement;
   const dialog=root.querySelector('#rs-dialog');
-  const body=kind==='rules'?rules():kind==='sources'?sources():`<span class="rs-label">A fresh first page</span><h2 id="rs-dialog-title">Begin again?</h2><p>This will replace the career saved in this browser. Your new career begins with the original stats and fresh chance outcomes.</p><div class="rs-actions">${button('confirm-restart','Begin a new career')}${linkButton('close-dialog','Keep this career')}</div>`;
+  const body=kind==='rules'?rules():kind==='sources'?sources():kind==='guide'?authorsGuide():`<span class="rs-label">A fresh first page</span><h2 id="rs-dialog-title">Begin again?</h2><p>This will replace the career saved in this browser. Your new career begins with the original stats and fresh chance outcomes.</p><div class="rs-actions">${button('confirm-restart','Begin a new career')}${linkButton('close-dialog','Keep this career')}</div>`;
   dialog.innerHTML=`<button type="button" class="rs-dialog-close" data-action="close-dialog" aria-label="Close dialog">×</button>${body}`;
-  dialog.showModal();
+  if (!dialog.open) dialog.showModal();
+  dialog.scrollTop=0;
 }
 function closeDialog() { root.querySelector('#rs-dialog').close(); }
 function render(focus=true) {
@@ -89,7 +91,7 @@ function render(focus=true) {
   root.querySelector('#rs-announcer').textContent=page==='intro'?'Introduction':game.screen==='decision'?`Decision ${game.turn+1} of 6. ${CHAPTERS[game.turn].title}.`:game.screen==='outcome'?`${outcomeText(game.history.at(-1))[0]}. ${KEYS.map(k=>`${LABELS[k]} ${game.stats[k]} of 5`).join('. ')}.`:ENDINGS[game.ending].title;
 }
 function begin() { game=newGame();page='play';persist();render(); }
-root.innerHTML=`<a class="rs-skip" href="#rs-main">Skip to game</a><div class="rs-wrap"><header class="rs-header"><button type="button" class="rs-brand" data-action="home" aria-label="Renaissance Scientist introduction">${mark()}<span>The natural philosopher’s<br>chronicle</span></button><nav class="rs-nav" aria-label="Game information"><button type="button" data-action="rules">How to play</button><button type="button" data-action="sources">Sources & context</button></nav></header><main id="rs-main" class="rs-main"></main><footer class="rs-footer"><span>A fictional life. Historically grounded dilemmas.</span><span>Original artwork · Version 1.0 ${linkButton('restart','Restart career').replace('class="rs-text-button"','id="rs-restart" class="rs-text-button" hidden')}</span></footer></div><div id="rs-announcer" class="rs-sr" role="status" aria-live="polite" aria-atomic="true"></div><dialog id="rs-dialog" class="rs-dialog" aria-labelledby="rs-dialog-title"></dialog>`;
+root.innerHTML=`<a class="rs-skip" href="#rs-main">Skip to game</a><div class="rs-wrap"><header class="rs-header"><button type="button" class="rs-brand" data-action="home" aria-label="Renaissance Scientist introduction">${mark()}<span>The natural philosopher’s<br>chronicle</span></button><nav class="rs-nav" aria-label="Game information"><button type="button" data-action="rules">How to play</button><button type="button" data-action="sources">Sources & context</button><button type="button" data-action="guide">Author’s Guide</button></nav></header><main id="rs-main" class="rs-main"></main><footer class="rs-footer"><span>A fictional life. Historically grounded dilemmas.</span><span>Original artwork · Version 2.1 ${linkButton('restart','Restart career').replace('class="rs-text-button"','id="rs-restart" class="rs-text-button" hidden')}</span></footer></div><div id="rs-announcer" class="rs-sr" role="status" aria-live="polite" aria-atomic="true"></div><dialog id="rs-dialog" class="rs-dialog" aria-labelledby="rs-dialog-title"></dialog>`;
 root.addEventListener('click',event=>{
   const el=event.target.closest('[data-action]'); if(!el||!root.contains(el))return;
   const action=el.dataset.action;
@@ -100,7 +102,7 @@ root.addEventListener('click',event=>{
   else if(action==='choose'&&page==='play'&&game.screen==='decision'){game=choose(game,Number(el.dataset.choice));persist();render();}
   else if(action==='continue'&&game.screen==='outcome'){game=advance(game);persist();render();}
   else if(action==='close-dialog')closeDialog();
-  else if(['rules','sources','restart'].includes(action))openDialog(action);
+  else if(['rules','sources','guide','restart'].includes(action))openDialog(action);
 });
 root.querySelector('#rs-dialog').addEventListener('close',()=>{if(dialogFocus?.isConnected)dialogFocus.focus({preventScroll:true});});
 render(false);
