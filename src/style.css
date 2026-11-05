@@ -70,6 +70,8 @@
 
 #renaissance-app .rs-chapter-art img{height:auto;max-height:200px;aspect-ratio:16/10;object-fit:cover}
 #renaissance-app .rs-guide-lead{font-size:20px;font-style:italic}
+#renaissance-app .rs-author-byline{font:13px/1.7 Arial,sans-serif;letter-spacing:.3px;margin:4px 0 22px;color:#4b4639!important}
+#renaissance-app .rs-author-byline a{color:#403619!important}
 #renaissance-app .rs-guide-letter{border-left:3px solid #92723d;background:#daceb255;padding:16px 20px;margin:22px 0}
 #renaissance-app .rs-guide-letter p:last-child{margin-bottom:0}
 #renaissance-app .rs-guide-chapter{border-top:1px solid #b5a681;padding:18px 0}

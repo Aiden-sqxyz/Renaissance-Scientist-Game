@@ -70,6 +70,8 @@
 
 #renaissance-app .rs-chapter-art img{height:auto;max-height:200px;aspect-ratio:16/10;object-fit:cover}
 #renaissance-app .rs-guide-lead{font-size:20px;font-style:italic}
+#renaissance-app .rs-author-byline{font:13px/1.7 Arial,sans-serif;letter-spacing:.3px;margin:4px 0 22px;color:#4b4639!important}
+#renaissance-app .rs-author-byline a{color:#403619!important}
 #renaissance-app .rs-guide-letter{border-left:3px solid #92723d;background:#daceb255;padding:16px 20px;margin:22px 0}
 #renaissance-app .rs-guide-letter p:last-child{margin-bottom:0}
 #renaissance-app .rs-guide-chapter{border-top:1px solid #b5a681;padding:18px 0}
@@ -433,6 +435,7 @@ const MODEL = {
 function authorsGuide() {
   const advice=(title,text)=>`<section class="rs-guide-advice"><h4>${title}</h4><p>${text}</p></section>`;
   return `<span class="rs-label">From the assignment to the game</span><h2 id="rs-dialog-title">Author’s Guide</h2>
+<p class="rs-author-byline">Written and adapted by <strong>Aiden Wu</strong><br><a href="mailto:aidenwu1114@gmail.com">aidenwu1114@gmail.com</a></p>
 <p class="rs-guide-lead">A letter from the twenty-first century to a scientist in the Renaissance.</p>
 <p>This game grew out of an AP Research assignment, <em>A Comprehensive Guide for Scientists in the Renaissance Era</em>. The original essay imagined sending practical advice into the past, using Galileo’s life as its central example. This guide adapts its three chapters into the ideas behind the game.</p>
 <div class="rs-guide-letter"><p>To the mathematicians, astronomers, naturalists, and explorers of another age: your questions may change how future generations understand the world. Yet that future cannot pay today’s bills, purchase your instruments, or protect your freedom to work.</p><p>These pages offer advice on making a living, investigating nature, and navigating authority. Choose wisely. Advice should help you weigh your priorities; it should never replace your own moral judgment.</p></div>
@@ -550,7 +553,7 @@ function render(focus=true) {
   root.querySelector('#rs-announcer').textContent=page==='intro'?'Introduction':game.screen==='decision'?`Decision ${game.turn+1} of 6. ${CHAPTERS[game.turn].title}.`:game.screen==='outcome'?`${outcomeText(game.history.at(-1))[0]}. ${KEYS.map(k=>`${LABELS[k]} ${game.stats[k]} of 5`).join('. ')}.`:ENDINGS[game.ending].title;
 }
 function begin() { game=newGame();page='play';persist();render(); }
-root.innerHTML=`<a class="rs-skip" href="#rs-main">Skip to game</a><div class="rs-wrap"><header class="rs-header"><button type="button" class="rs-brand" data-action="home" aria-label="Renaissance Scientist introduction">${mark()}<span>The natural philosopher’s<br>chronicle</span></button><nav class="rs-nav" aria-label="Game information"><button type="button" data-action="rules">How to play</button><button type="button" data-action="sources">Sources & context</button><button type="button" data-action="guide">Author’s Guide</button></nav></header><main id="rs-main" class="rs-main"></main><footer class="rs-footer"><span>A fictional life. Historically grounded dilemmas.</span><span>Original artwork · Version 2.1 ${linkButton('restart','Restart career').replace('class="rs-text-button"','id="rs-restart" class="rs-text-button" hidden')}</span></footer></div><div id="rs-announcer" class="rs-sr" role="status" aria-live="polite" aria-atomic="true"></div><dialog id="rs-dialog" class="rs-dialog" aria-labelledby="rs-dialog-title"></dialog>`;
+root.innerHTML=`<a class="rs-skip" href="#rs-main">Skip to game</a><div class="rs-wrap"><header class="rs-header"><button type="button" class="rs-brand" data-action="home" aria-label="Renaissance Scientist introduction">${mark()}<span>The natural philosopher’s<br>chronicle</span></button><nav class="rs-nav" aria-label="Game information"><button type="button" data-action="rules">How to play</button><button type="button" data-action="sources">Sources & context</button><button type="button" data-action="guide">Author’s Guide</button></nav></header><main id="rs-main" class="rs-main"></main><footer class="rs-footer"><span>Created by Aiden Wu · <a href="mailto:aidenwu1114@gmail.com">aidenwu1114@gmail.com</a><br>A fictional life. Historically grounded dilemmas.</span><span>Original artwork · Version 2.1 ${linkButton('restart','Restart career').replace('class="rs-text-button"','id="rs-restart" class="rs-text-button" hidden')}</span></footer></div><div id="rs-announcer" class="rs-sr" role="status" aria-live="polite" aria-atomic="true"></div><dialog id="rs-dialog" class="rs-dialog" aria-labelledby="rs-dialog-title"></dialog>`;
 root.addEventListener('click',event=>{
   const el=event.target.closest('[data-action]'); if(!el||!root.contains(el))return;
   const action=el.dataset.action;

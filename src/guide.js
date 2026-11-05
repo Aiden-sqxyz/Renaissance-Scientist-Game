@@ -1,6 +1,7 @@
 export function authorsGuide() {
   const advice=(title,text)=>`<section class="rs-guide-advice"><h4>${title}</h4><p>${text}</p></section>`;
   return `<span class="rs-label">From the assignment to the game</span><h2 id="rs-dialog-title">Author’s Guide</h2>
+<p class="rs-author-byline">Written and adapted by <strong>Aiden Wu</strong><br><a href="mailto:aidenwu1114@gmail.com">aidenwu1114@gmail.com</a></p>
 <p class="rs-guide-lead">A letter from the twenty-first century to a scientist in the Renaissance.</p>
 <p>This game grew out of an AP Research assignment, <em>A Comprehensive Guide for Scientists in the Renaissance Era</em>. The original essay imagined sending practical advice into the past, using Galileo’s life as its central example. This guide adapts its three chapters into the ideas behind the game.</p>
 <div class="rs-guide-letter"><p>To the mathematicians, astronomers, naturalists, and explorers of another age: your questions may change how future generations understand the world. Yet that future cannot pay today’s bills, purchase your instruments, or protect your freedom to work.</p><p>These pages offer advice on making a living, investigating nature, and navigating authority. Choose wisely. Advice should help you weigh your priorities; it should never replace your own moral judgment.</p></div>
