@@ -36,3 +36,27 @@
 #renaissance-app .rs-paper .rs-positive{color:#245331!important}
 #renaissance-app .rs-paper .rs-negative,
 #renaissance-app .rs-paper .rs-warning{color:#7f211b!important}
+
+/* Desktop proportions: use the monitor width and keep one decision near a screenful. */
+@media(min-width:1001px){
+  #renaissance-app .rs-wrap{max-width:1320px}
+  #renaissance-app .rs-header{min-height:76px}
+  #renaissance-app .rs-hero{grid-template-columns:1.05fr .95fr;padding:42px 0 26px}
+  #renaissance-app .rs-hero-art{display:grid;justify-items:center;padding-bottom:0}
+  #renaissance-app .heavens{max-height:450px}
+  #renaissance-app .rs-ledger{padding:18px 0}
+  #renaissance-app .rs-open-note{padding:15px 0}
+  #renaissance-app .rs-timeline{padding:19px 0 21px}
+  #renaissance-app .rs-play-layout{grid-template-columns:minmax(0,1fr) 270px;gap:30px}
+  #renaissance-app .rs-paper{padding:27px 38px 30px}
+  #renaissance-app .rs-chapter-meta{margin-bottom:10px}
+  #renaissance-app .rs-paper h1{margin-bottom:10px}
+  #renaissance-app .rs-location{margin-bottom:13px}
+  #renaissance-app .rs-situation{max-width:78ch;font-size:15.5px;line-height:1.7;margin-bottom:11px}
+  #renaissance-app .rs-responsive{margin-bottom:17px}
+  #renaissance-app .rs-prompt{margin-bottom:10px}
+  #renaissance-app .rs-choices{gap:9px}
+  #renaissance-app .rs-choice{padding:12px 16px}
+  #renaissance-app .rs-choice-desc{margin-bottom:4px}
+  #renaissance-app .rs-random-rule{margin-top:12px}
+}

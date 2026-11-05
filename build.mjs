@@ -7,5 +7,5 @@ const page=`<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta nam
 await mkdir('dist',{recursive:true});
 await writeFile('dist/index.html',page);
 // This response-only fragment previews the same app, with no network dependencies.
-await writeFile('/workspace/renaissance-scientist-preview-v3.html',fragment.replace('<style>', '<style>#renaissance-app{min-height:0!important}')); 
+await writeFile('/workspace/renaissance-scientist-preview-desktop.html',fragment.replace('<style>', '<style>#renaissance-app{min-height:0!important}')); 
 console.log(`Built ${Buffer.byteLength(page)} bytes. No runtime dependencies or external visual assets.`);
