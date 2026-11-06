@@ -113,6 +113,6 @@ test('educational content meets requested lengths and all decisions offer three 
   for(const c of CHAPTERS){assert.equal(c.choices.length,3);assert.ok(words(c.insight)>=25&&words(c.insight)<=45,`Insight ${c.year}`);assert.ok(words(c.note)>=80&&words(c.note)<=120,`Note ${c.year}`);assert.ok(c.sources.length>0);}
   for(const ending of ['success','unrecognized','stable','unfinished','ruin']){
     const game={ending,stats:{money:ending==='ruin'?0:3,research:4,reputation:3,safety:3},history:[]};
-    assert.ok(words(reflection(game))>=100&&words(reflection(game))<=150,`${ending} reflection: ${words(reflection(game))}`);
+    assert.ok(words(reflection(game))>=40&&words(reflection(game))<=90,`${ending} reflection: ${words(reflection(game))}`);
   }
 });

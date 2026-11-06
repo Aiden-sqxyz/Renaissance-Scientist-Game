@@ -1,103 +1,103 @@
 export const LABELS = { money: 'Money', research: 'Research', reputation: 'Reputation', safety: 'Safety' };
 export const DESCRIPTIONS = { money: 'Savings, income, and the cost of your work.', research: 'The progress and quality of your investigations.', reputation: 'Scholarly credibility and professional support.', safety: 'Your health and freedom to continue working.' };
-export const INTRO = 'Italy, 1587. New instruments are changing what people can see, but a discovery alone does not make a career. As a fictional natural philosopher, you must pay your bills, earn the trust of scholars, and find room for ideas that unsettle established knowledge. Across six moments inspired by Galileo’s world, your choices—and circumstances beyond your control—will shape what you can achieve. Protect your livelihood. Follow your questions. Decide what you are willing to risk.';
+export const INTRO = 'Italy, 1587. You are a young natural philosopher—a scientist of your time—with little money and questions about how the world works.\n\nUniversities teach ideas inherited from ancient authorities. New observations challenge them, but evidence alone will not secure your future. You need an income, influential supporters, and the freedom to keep working.\n\nAcross six decisions, build your career in Galileo’s world. How much will you risk for a discovery?';
 export const CHAPTERS = [
   {
-    date: 'c. 1587', year: '1587', roman: 'I', title: 'The Struggling Scholar', place: 'A rented room in Tuscany',
-    text: 'Your notebook is full of questions about motion. Your purse is almost empty. A merchant wants instruments, a wealthy family needs a mathematics tutor, and your own unfinished experiments wait on the table. There is no salary for curiosity. Before you can change anyone’s understanding of the world, you must decide how to live in it.',
-    prompt: 'How will you begin your career?',
+    date: 'c. 1587', year: '1587', roman: 'I', title: 'Making a Living', place: 'Tuscany',
+    text: 'Your experiments on motion need time and equipment, but rent is due. Scholars often support themselves by teaching mathematics or making instruments for navigation and trade. Either could pay your bills—while taking time away from research.',
+    prompt: 'What will you do?',
     choices: [
-      ['Teach mathematics to wealthy students', 'A reliable income, purchased with hours away from your own questions.', 'Money +2'],
-      ['Build practical instruments for merchants', 'Turn mathematical ideas into useful tools and learn as you work.', 'Money +1 · Research +1'],
-      ['Spend savings on independent research', 'Give the experiments your full attention. The bills will have to wait.', 'Money −1 · Research +2']
+      ['Teach wealthy students', 'Earn steady money, but put your experiments aside.', 'Money +2'],
+      ['Make instruments for merchants', 'Earn money while developing practical skills.', 'Money +1 · Research +1'],
+      ['Spend your savings on research', 'Follow your questions while you can afford to.', 'Money −1 · Research +2']
     ],
     outcomes: [
-      ['A living from numbers', 'Your pupils learn geometry while their families settle your fees. You have secured breathing room, though the questions in your notebook must wait.'],
-      ['Knowledge put to work', 'An instrument leaves your workbench and earns its price. The difficult work of making it has sharpened your understanding as well.'],
-      ['The first pages fill', 'Days of uninterrupted experiments bring real progress. You turn the final page with satisfaction, then count the coins you have left.']
+      ['A living from numbers', 'Your pupils learn geometry, and their families pay on time. Your notebook stays closed a little longer.'],
+      ['Knowledge put to work', 'A merchant buys your instrument. Building it has also given you ideas for your next experiment.'],
+      ['The first pages fill', 'Uninterrupted experiments bring progress. By candlelight, you check your results—and count your remaining coins.']
     ],
     insight: '', note: '', sources: []
   },
   {
-    date: 'c. 1592', year: '1592', roman: 'II', title: 'The University Opportunity', place: 'Letters from the university',
-    text: 'A university appointment promises regular pay and a place among learned colleagues. But appointments depend on recommendations as well as ability, and another scholar may be preferred. Your private work remains an alternative: less prestigious, perhaps, but immediately within reach. You prepare your papers and consider how much uncertainty you can afford.',
-    prompt: 'Where will you place your hopes?',
+    date: 'c. 1592', year: '1592', roman: 'II', title: 'A Place at the University', place: 'An opportunity arrives',
+    text: 'A university needs a mathematics teacher. The position offers regular pay, scholarly contacts, and students who might assist your research. But recommendations matter as much as ability. Applying will cost money, and another scholar could take the position.',
+    prompt: 'Where will you put your hopes?',
     choices: [
-      ['Apply for a prestigious university position', 'Ask influential scholars to support your application.', '60%: Money +2, Reputation +1|40%: Money −1'],
-      ['Continue private tutoring alongside research', 'Keep dependable pupils and reserve some hours for investigation.', 'Money +1 · Research +1'],
-      ['Remain completely independent', 'Keep control of your work and pay its costs yourself.', 'Money −1 · Research +2']
+      ['Apply for the university position', 'Seek recommendations and take your chance.', '60%: Money +2, Reputation +1|40%: Money −1'],
+      ['Keep tutoring and researching', 'Divide your days between income and experiments.', 'Money +1 · Research +1'],
+      ['Stay independent', 'Keep control of your time and pay your own way.', 'Money −1 · Research +2']
     ],
     outcomes: [
-      ['An appointment secured', 'Your recommendations carry weight. The university offers a position, and a regular income brings new standing among your peers.'],
-      ['A modest rhythm', 'Lessons keep the household afloat. Between pupils, you return to the experiments: slow progress, but progress you can sustain.'],
-      ['Freedom at a price', 'You decline to organize your questions around an institution’s timetable. Your research advances while your remaining savings diminish.']
+      ['An appointment secured', 'Your supporters’ letters make a difference. The university offers you the position, a salary, and a more respected name.'],
+      ['A modest rhythm', 'Lessons pay the bills. Your experiments move slowly, squeezed into the hours between pupils.'],
+      ['Freedom at a price', 'No teaching timetable interrupts your experiments. No salary replenishes your savings, either.']
     ],
-    failure: ['The chair goes to someone else', 'A polite letter closes the opportunity. Preparing the application has cost money, and the position you hoped for belongs to another scholar.'],
+    failure: ['The chair goes to someone else', 'The position goes to someone else. Your application expenses are gone, and you still need a living.'],
     insight: '', note: '', sources: []
   },
   {
-    date: 'c. 1609', year: '1609', roman: 'III', title: 'The Price of Precision', place: 'At the instrument maker’s bench',
-    text: 'News arrives of a device that makes distant objects appear nearer. Turned toward the sky, such an instrument might reveal things no accepted book describes. But uneven lenses can produce misleading images. Better equipment costs money; making it yourself requires skill and patience. Your next claim will be only as convincing as the observations behind it.',
-    prompt: 'How will you improve your observations?',
+    date: 'c. 1609', year: '1609', roman: 'III', title: 'A New View of the Sky', place: 'The workshop',
+    text: 'News arrives of a Dutch instrument that makes distant objects appear closer. What might it reveal in the night sky? Poor lenses distort the view and invite doubt. Better equipment could strengthen your observations—if you can afford it.',
+    prompt: 'How will you equip yourself?',
     choices: [
-      ['Purchase high-quality lenses and apparatus', 'Pay for better materials and begin observing with confidence.', 'Money −2 · Research +2'],
-      ['Build and improve a telescope', 'Shape and test the instrument yourself; precision is uncertain.', 'Money −1 · Research +1|50% chance: additional Research +1'],
-      ['Continue using existing equipment', 'Ask what your present instruments can reliably show.', 'Research +1']
+      ['Buy high-quality lenses', 'Pay heavily for clearer observations.', 'Money −2 · Research +2'],
+      ['Build your own telescope', 'Save money, but risk disappointing results.', 'Money −1 · Research +1|50% chance: additional Research +1'],
+      ['Keep your existing equipment', 'Work carefully within its limits.', 'Research +1']
     ],
     outcomes: [
-      ['A clearer view', 'The improved apparatus makes careful comparisons possible. Better observations fill your notebook, though the purchase has taken a substantial part of your funds.'],
-      ['The lenses finally agree', 'After repeated adjustments, the image becomes clearer. Your work on the instrument yields both useful observations and an unexpected extra advance.'],
-      ['Patience with imperfect tools', 'You repeat measurements with the equipment you already have. Its limits remain, but careful work still produces a useful result.']
+      ['A clearer view', 'Distant details come into focus. Your observations improve, but the purchase leaves a large gap in your purse.'],
+      ['The lenses finally agree', 'After days of grinding and adjustment, the image sharpens. Your homemade telescope reveals more than you expected.'],
+      ['Patience with imperfect tools', 'Repeated measurements reveal something useful. You make progress, though some questions remain beyond your instruments.']
     ],
-    failure: ['A useful, imperfect instrument', 'Your telescope works, though the image is less precise than you hoped. The work still improves your research; the extra breakthrough eludes you.'],
+    failure: ['A useful, imperfect instrument', 'The telescope works, but distortion remains. You gain useful observations without the breakthrough you hoped for.'],
     insight: '', note: '', sources: []
   },
   {
-    date: 'c. 1610', year: '1610', roman: 'IV', title: 'The Wealthy Patron', place: 'Beyond the palace doors',
-    text: 'A discovery needs readers, instruments need payment, and letters of introduction open doors that evidence alone cannot. A great court might support your work and carry your name across Italy. A local patron offers less, with more certainty. Accepting support means entering a relationship of expectations and obligation. You must decide whose attention to seek.',
-    prompt: 'Whose support will you pursue?',
+    date: 'c. 1610', year: '1610', roman: 'IV', title: 'Someone Powerful Is Listening', place: 'Outside the palace',
+    text: 'Wealthy patrons fund instruments, offer positions, and open doors. In return, they expect service, prestige, or a flattering dedication. A powerful court could transform your career. A local supporter offers less, but seems easier to win over.',
+    prompt: 'Whose support will you seek?',
     choices: [
-      ['Seek a prestigious court patron', 'Present your work where a powerful endorsement could change everything.', '65%: Money +2, Reputation +2|35%: Reputation −1'],
-      ['Accept modest support from a local patron', 'Choose a smaller circle and a dependable arrangement.', 'Money +1 · Reputation +1'],
-      ['Reject patronage and finance research yourself', 'Preserve your independence with another claim on your savings.', 'Money −1 · Research +2']
+      ['Approach a powerful court', 'Aim for generous funding and influential connections.', '65%: Money +2, Reputation +2|35%: Reputation −1'],
+      ['Accept a local patron’s offer', 'Choose modest, dependable support.', 'Money +1 · Reputation +1'],
+      ['Fund the work yourself', 'Keep your independence and carry the expense.', 'Money −1 · Research +2']
     ],
     outcomes: [
-      ['A name welcomed at court', 'Your presentation wins an influential supporter. Funds arrive, and people who once overlooked your letters begin to answer.'],
-      ['A dependable supporter', 'Your patron cannot command an entire court, but provides useful funds and introductions. A modest arrangement gives your work room to continue.'],
-      ['No dedication owed', 'You keep control of your investigations and owe no patron a flattering dedication. The research advances at your own expense.']
+      ['A name welcomed at court', 'Your presentation impresses the right people. Funding arrives, and scholars who ignored your letters begin answering them.'],
+      ['A dependable supporter', 'Your patron offers money and introductions. It is no grand appointment, but you can keep working.'],
+      ['No dedication owed', 'You owe nobody a flattering dedication. The experiments advance at your own expense.']
     ],
-    failure: ['The court turns away', 'Your appeal fails to impress the right people. The public disappointment costs you standing, even though your observations remain unchanged.'],
+    failure: ['The court turns away', 'Your presentation wins no support. Word of the rejection spreads, weakening your standing.'],
     insight: '', note: '', sources: []
   },
   {
-    date: 'c. 1616', year: '1616', roman: 'V', title: 'The Dangerous Discovery', place: 'A widening circle of debate',
-    text: 'Your observations trouble familiar accounts of the heavens. Some scholars question the instruments; others dispute what the evidence proves. Arguments about a moving Earth now also confront official religious restrictions. You have reasons to keep investigating, but the way you present those reasons matters. A public defense could win supporters while putting your freedom at risk.',
-    prompt: 'How will you communicate the evidence?',
+    date: 'c. 1616', year: '1616', roman: 'V', title: 'Evidence Becomes Dangerous', place: 'The debate widens',
+    text: 'Your observations challenge accepted ideas about the heavens. Scholars dispute what they prove, while religious authorities restrict support for a moving Earth. Speaking publicly could win allies—or attract people with the power to stop your work.',
+    prompt: 'How will you share your findings?',
     choices: [
-      ['Publicly defend controversial findings', 'Bring the dispute into the open and accept the personal risk.', 'Reputation +2 · Safety −2'],
-      ['Share evidence privately with trusted scholars', 'Let a small circle examine and discuss your observations.', 'Research +1 · Reputation +1'],
-      ['Investigate further before publishing', 'Strengthen the work while postponing a public claim.', 'Research +2']
+      ['Defend them publicly', 'Put your name behind the argument despite the danger.', 'Reputation +2 · Safety −2'],
+      ['Write to trusted scholars', 'Let a smaller circle examine the evidence.', 'Research +1 · Reputation +1'],
+      ['Keep investigating', 'Strengthen your research before entering the debate.', 'Research +2']
     ],
     outcomes: [
-      ['Your argument enters the square', 'Your defense brings new attention and supporters. It also draws scrutiny that makes continuing your work more precarious.'],
-      ['A quieter exchange', 'Trusted correspondents question, check, and develop your evidence. Their confidence in your work grows alongside the investigation itself.'],
-      ['Another night of questions', 'You postpone the public argument and return to the evidence. The findings become stronger, even as the wider world remains unaware.']
+      ['Your argument enters the square', 'Your argument wins attention and supporters. It also draws scrutiny that threatens your freedom to continue.'],
+      ['A quieter exchange', 'Letters bring questions, corrections, and encouragement. Your evidence grows stronger, and more colleagues trust your work.'],
+      ['Another night of questions', 'You return to the instruments. Your findings improve, while the public debate continues without you.']
     ],
     insight: '', note: '', sources: []
   },
   {
-    date: 'c. 1632–1633', year: '1633', roman: 'VI', title: 'The Final Manuscript', place: 'The last pages of a life’s work',
-    text: 'Years of investigation now lie gathered in a manuscript. The wording of an argument, the people who approve it, and the readers who receive it may shape its fate as much as the observations inside. You can write boldly, revise with care, or trust a small circle to carry the work forward. There is time for one final decision.',
-    prompt: 'How will your work leave this room?',
+    date: 'c. 1632–1633', year: '1633', roman: 'VI', title: 'The Final Manuscript', place: 'Your study',
+    text: 'Years of work fill your manuscript. In Galileo’s Italy, publishing arguments about the heavens can bring official scrutiny. Your wording, supporters, and choice of readers may determine how far your ideas travel—and whether you remain free to work.',
+    prompt: 'How will you send it into the world?',
     choices: [
-      ['Publish a bold, controversial treatise', 'Seek a public audience despite the danger of official scrutiny.', 'Reputation +2 · Safety −2'],
-      ['Carefully revise the manuscript and seek approval', 'Negotiate the wording and the conditions of publication.', 'Reputation +1 · Safety +1'],
-      ['Circulate it among trusted scholars', 'Pay to prepare copies for readers you know.', 'Money −1 · Research +1 · Reputation +1']
+      ['Publish a bold argument', 'Reach a wide audience and face the scrutiny.', 'Reputation +2 · Safety −2'],
+      ['Revise carefully and seek approval', 'Negotiate how your ideas appear in print.', 'Reputation +1 · Safety +1'],
+      ['Send copies to trusted scholars', 'Pay for a smaller, familiar readership.', 'Money −1 · Research +1 · Reputation +1']
     ],
     outcomes: [
-      ['Into print, and into danger', 'The treatise gives your ideas a louder public voice. That attention carries a personal cost you can no longer set aside.'],
-      ['Every word considered', 'Your careful revision earns professional confidence and, within this fictional career, some protection. The work reaches its final form through negotiation.'],
-      ['The manuscript travels by hand', 'Copies leave for trusted readers. Their exchange strengthens the investigation and your standing, though preparing the manuscripts costs money.']
+      ['Into print, and into danger', 'Your book brings your argument to a wider audience. The attention also increases the danger surrounding your work.'],
+      ['Every word considered', 'You revise disputed passages and secure support for publication. The compromises give your work some breathing room.'],
+      ['The manuscript travels by hand', 'Copies travel between trusted readers. Their responses strengthen your work and reputation, though copying costs you money.']
     ],
     insight: '', note: '', sources: []
   }
@@ -151,17 +151,13 @@ export const ENDINGS = {
   ruin: { number: 'V', title: 'Professional Ruin', subtitle: 'The conditions for continuing have fallen away.', theme: 'red' }
 };
 export function reflection(game) {
-  const s = game.stats, h = game.history;
+  const s = game.stats;
   const opening = {
-    success: 'Your investigations have substance, your name carries weight, and you still possess the means and freedom to work. Wider recognition arrives—a rare convergence of achievement and circumstance.',
-    unrecognized: 'Your investigations produced substantial work, but exceptional public recognition did not follow. The value of an observation and the visibility of its author have proved to be different things.',
-    stable: 'You finish with a viable livelihood and a measure of professional respect. Your investigations remain below the game’s discovery threshold, but maintaining a career was itself an achievement.',
-    unfinished: 'You remain able to work, but the six chapters close before your investigations and professional position can come together. Your unfinished pages record ambition as well as limits.',
-    ruin: s.money === 0 && s.safety === 0 ? 'Both your funds and your freedom or health have reached their limits. The career ends here, before another opportunity can change its course.' : s.money === 0 ? 'Your money has run out. Whatever remains in your notebook, you no longer have the resources to sustain this career. An unanswered question cannot pay the next bill.' : 'Your health or freedom to work has reached its limit. The career ends, even if your money and unfinished investigations might otherwise have supported another chapter.'
+    success: 'Your discoveries win recognition, and you still have the money and freedom to continue. Years of work, useful connections, and fortunate circumstances have come together. Few scholars reach this position.',
+    unrecognized: 'Your notebooks contain valuable discoveries, but wider recognition never arrives. Some readers overlook your work; others remain unconvinced. You have advanced knowledge, even if your name remains unfamiliar.',
+    stable: 'You have an income, professional respect, and room to keep working. The great breakthrough remains beyond reach, but you have built a lasting place in a precarious profession.',
+    unfinished: 'You can still work, but your ambitions remain unfinished. Too much time went into finding money, support, or an audience. Your manuscript ends with questions you have yet to answer.',
+    ruin: s.money === 0 ? 'Your money runs out. Rent, equipment, and daily expenses leave you unable to continue this career. Whatever your discoveries might have become, the next bill cannot wait.' : 'Illness or restrictions leave you unable to continue. Your unfinished work remains on the desk. Neither talent nor ambition can restore the conditions you need to pursue it.'
   }[game.ending];
-  const patron = h[3]?.choice;
-  const personal = patron === 0 ? (h[3].success ? 'A successful appeal to court brought both resources and standing; connections helped carry your work.' : 'Your unsuccessful appeal to court showed how much professional support depended on other people’s judgment.') : patron === 1 ? 'The modest patronage you accepted provided a dependable foundation, even without the influence of a great court.' : patron === 2 ? 'You chose to finance your own research, preserving independence while carrying the financial burden yourself.' : 'Your early decisions determined how much time and money you could devote to the questions that drew you here.';
-  const events = h.filter(e => ['setback','opportunity'].includes(e.event.kind));
-  const luck = events.length ? `${events.length} unexpected ${events.length === 1 ? 'event altered' : 'events altered'} your circumstances along the way. Neither careful planning nor ambition could remove that uncertainty.` : 'No unexpected event altered this run. Even so, the trade-offs within your decisions set real limits on what was possible.';
-  return `${opening} ${personal} ${luck} This fictional career is not Galileo’s biography. Its lesson is about the conditions of inquiry: reliable instruments, income, credibility, support, and freedom. Intelligence alone could not guarantee that all of them would last, even for a gifted and unusually determined scholar.`;
+  return `${opening}\n\nYou needed more than good ideas: time, money, reliable instruments, people willing to listen, and the freedom to work. Which did you protect—and what did it cost you?`;
 }
