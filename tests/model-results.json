@@ -1,0 +1,88 @@
+{
+  "runs": 200000,
+  "randomExact": 0.0558181840929266,
+  "optimalExact": 0.19805366251563128,
+  "rows": [
+    {
+      "label": "Uniform random choices",
+      "simulated": 0.05553,
+      "exact": 0.0558181840929266
+    },
+    {
+      "label": "Cautious fixed choices (B, B, C, B, B, B)",
+      "simulated": 0.08944,
+      "exact": 0.09016067142047893
+    },
+    {
+      "label": "Optimized choices using current stats",
+      "simulated": 0.196735,
+      "exact": 0.19805366251563128
+    }
+  ],
+  "notes": "Modeled game probabilities, not measured human or historical outcomes. Absorbing ruin is checked after choices and events. Recognition checked after last event. Exact enumeration checks all 729 fixed sequences. The adaptive policy maximizes Exceptional Success using complete state information.",
+  "seeds": [
+    15871633,
+    15921610,
+    16091616
+  ],
+  "randomEndings": {
+    "success": 0.0558181840929266,
+    "unrecognized": 0.4406857937814726,
+    "stable": 0.0922128190253991,
+    "unfinished": 0.011531348996760282,
+    "ruin": 0.39975185410344083
+  },
+  "optimalEndings": {
+    "success": 0.19805366251563128,
+    "unrecognized": 0.6815379386351691,
+    "stable": 0.006900126759338364,
+    "unfinished": 0.020756195739650762,
+    "ruin": 0.09275207635021207
+  },
+  "simulationEndings": {
+    "random": {
+      "success": 0.05553,
+      "unrecognized": 0.439615,
+      "stable": 0.0937,
+      "unfinished": 0.011775,
+      "ruin": 0.39938
+    },
+    "cautious": {
+      "success": 0.08944,
+      "unrecognized": 0.638195,
+      "stable": 0.269705,
+      "unfinished": 0.000375,
+      "ruin": 0.002285
+    },
+    "optimal": {
+      "success": 0.196735,
+      "unrecognized": 0.68292,
+      "stable": 0.00689,
+      "unfinished": 0.02033,
+      "ruin": 0.093125
+    }
+  },
+  "bestFixed": {
+    "rate": 0.15651051035991612,
+    "path": [
+      1,
+      0,
+      0,
+      1,
+      1,
+      2
+    ]
+  },
+  "worstFixed": {
+    "rate": 8.342742919921874e-10,
+    "path": [
+      2,
+      2,
+      0,
+      2,
+      2,
+      2
+    ]
+  },
+  "statesInBellmanCache": 2336
+}
